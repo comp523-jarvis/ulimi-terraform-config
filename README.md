@@ -1,6 +1,6 @@
-# UltiManager Terraform Config
+# Ulimi Terraform Config
 
-Configuration for setting up UltiManger's Terraform infrastructure. This repository also contains a guide on our usage of Terraform.
+Configuration for setting up Ulimi's Terraform infrastructure. This repository also contains a guide on our usage of Terraform.
 
 
 ## Usage
@@ -10,10 +10,11 @@ Use the following block to use the backend created by this module:
 ```hcl
 terraform {
   backend "s3" {
-    bucket         = "ultimanager-terraform-state"
-    dynamodb_table = "terraform-lock"
-    key            = "<project-name>"
-    region         = "us-east-1"
+    bucket               = "ulimi-terraform-state"
+    dynamodb_table       = "terraform-lock"
+    key                  = "<project-name>"
+    region               = "us-east-1"
+    workspace_key_prefix = "<project-name>"
   }
 }
 ```
@@ -66,7 +67,7 @@ This project is licensed under the MIT License. See the [`LICENSE`](LICENSE) fil
 
 ## Authors
 
-Chathan Driehuys (chathan@ultimanager.com)
+Chathan Driehuys (chathan@driehuys.com)
 
 
 [aws-credentials]: https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/setup-credentials.html
